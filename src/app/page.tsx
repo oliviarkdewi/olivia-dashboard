@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Header } from "@/components/Header";
 import { StatsRow } from "@/components/StatsRow";
 import { CalendarCard } from "@/components/CalendarCard";
@@ -31,7 +32,7 @@ export default async function Home() {
   return (
     <div className="min-h-screen bg-cream">
       <main className="mx-auto flex max-w-6xl flex-col gap-8 px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
-        <Header />
+        <Header title="Olivia — at a glance" />
 
         <StatsRow stats={stats} />
 
@@ -47,12 +48,17 @@ export default async function Home() {
           <TradeCard performance={trade} />
         </div>
 
-        <footer className="pb-4 text-center text-xs text-ink-soft">
-          Built for Olivia · data marked{" "}
-          <span className="rounded-full bg-gold-soft px-1.5 py-0.5 text-gold">
-            sample data
-          </span>{" "}
-          is illustrative and not yet connected to a live source.
+        <footer className="flex flex-col items-center gap-2 pb-4 text-center text-xs text-ink-soft">
+          <p>
+            Built for Olivia · data marked{" "}
+            <span className="rounded-full bg-gold-soft px-1.5 py-0.5 text-gold">
+              sample data
+            </span>{" "}
+            is illustrative and not yet connected to a live source.
+          </p>
+          <Link href="/ceo-briefing" className="font-medium text-moss hover:underline">
+            View Eightlab CEO briefing →
+          </Link>
         </footer>
       </main>
     </div>

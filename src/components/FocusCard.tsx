@@ -7,9 +7,15 @@ import { SampleDataTag } from "./ui/SampleDataTag";
 
 interface FocusCardProps {
   items: FocusItem[];
+  title?: string;
+  eyebrow?: string;
 }
 
-export function FocusCard({ items: initialItems }: FocusCardProps) {
+export function FocusCard({
+  items: initialItems,
+  title = "Today's focus",
+  eyebrow = "Priorities",
+}: FocusCardProps) {
   const [items, setItems] = useState(initialItems);
 
   function toggle(id: string) {
@@ -20,7 +26,7 @@ export function FocusCard({ items: initialItems }: FocusCardProps) {
 
   return (
     <Card className="flex h-full flex-col">
-      <CardHeader title="Today's focus" eyebrow="Priorities" right={<SampleDataTag />} />
+      <CardHeader title={title} eyebrow={eyebrow} right={<SampleDataTag />} />
       <ul className="flex flex-1 flex-col justify-center gap-3">
         {items.slice(0, 6).map((item) => (
           <li key={item.id}>
